@@ -1,0 +1,187 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SERCH</title>
+
+    <link rel="stylesheet" type="text/css" href="~/lib/fontawesome-free/css/all.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/fontawesome-free/css/brands.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/fontawesome-free/css/regular.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/fontawesome-free/css/solid.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/fontawesome-free/css/svg-with-js.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/fontawesome-free/css/v4-shims.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/fontawesome-free/css/v5-font-face.min.css" />
+    <!-- Ionicons -->
+    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" type="text/css" href="~/lib/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css" />
+    <!-- iCheck -->
+    <link rel="stylesheet" type="text/css" href="~/lib/icheck-bootstrap/icheck-bootstrap.min.css" />
+    <!-- JQVMap -->
+    <link rel="stylesheet" type="text/css" href="~/lib/jqvmap/jqvmap.min.css" />
+    <!-- Theme style -->
+    <link rel="stylesheet" type="text/css" href="~/lib/adminlte/css/adminlte.min.css" />
+
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" type="text/css" href="~/lib/overlayScrollbars/css/OverlayScrollbars.min.css" />
+    <!-- Daterange picker -->
+    <link rel="stylesheet" type="text/css" href="~/lib/daterangepicker/daterangepicker.css" />
+    <!-- summernote -->
+    <link rel="stylesheet" type="text/css" href="~/lib/summernote/summernote-bs4.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/loading.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/Site.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/sweetalert2/sweetalert2.css" />
+
+    @*<link rel="stylesheet" type="text/css" href="~/css/MiniMenu.css" />*@
+
+
+
+    <link rel="stylesheet" type="text/css" href="~/lib/datatables-bs4/css/datatables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/datatables-responsive/css/responsive.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/datatables-buttons/css/buttons.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/select2/css/select2.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/select2-bootstrap4-theme/select2-bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/lib/sweetalert2/sweetalert2.min.css" />
+
+    @RenderSection("Styles", false)
+</head>
+<body class="sidebar-mini layout-fixed" style="overflow: hidden">
+
+    <div class="loading-screen" id="loading-screen" style="display:none">
+        <div class="loader-pdi">
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+            <div class="loader-dot"></div>
+        </div>
+        <button id="cancelButton" class="btn btn-danger" style="position: absolute; top: 65%; left: 46%;">
+            Cancelar operación
+        </button>
+	</div>
+
+
+    <div class="wrapper">
+        <!-- Preloader -->
+        <!-- Navbar -->
+        <div class="logoHVA">
+            <a href="@Url.Action("Index", "Home")" class="">
+                @* <div class="expandHVA">
+                S.A.M.
+                </div>
+                <div class="colapseHVA" style="display:none;">
+                S
+                </div>*@
+            </a>
+        </div>
+        <nav class="MainHeaderPDI navbar navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <a style="color: white !important; margin-left: 50px; font-size: 24px;" href="@Url.Action("Index", "Home")" class="titulo">Home</a>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper" style="margin-left: 0 !important">
+            <!-- Content Header (Page header) -->
+            <!-- /.content-header -->
+            <section class="content">
+
+                <div class="content-header" style=" padding-bottom: 0px;">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-9">
+                                <h1 class="m-0"> <span style="color:#27ACD7">&#9632;</span> @(ViewBag.Title)</h1>
+                                <p class="page-subtitle">@(ViewBag.SubTitle)</p>
+                            </div><!-- /.col -->
+                            <div class="col-sm-3">
+                                <ol class="breadcrumb float-sm-right">
+                                </ol>
+                            </div><!-- /.col -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container-fluid -->
+                </div>
+                <div class="container-fluid container-pdi">
+
+                    @using (Html.BeginForm("LogOut", "Home", FormMethod.Post, new { id = "frmLogOutLa", DefaultButton = "btnLogOutLa" }))
+                    {
+                        <button id="btnLogOutLa" type="submit" class="btn btn-block btn-primary clickButtonMenu navPDI" style="display:none;"></button>
+                    }
+
+                    @RenderBody()
+
+                    <div id="scrollBotton">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+
+
+        <!-- /.content-wrapper -->
+        @*<footer class="main-footer">
+        </footer>*@
+
+        <footer class="footer">
+            <div class="footer-row d-flex flex-row justify-content-between align-items-center">
+                <div class="footer-left-side flex-row d-flex">
+                    <div class="item1">
+                        <img src="~/images/firma-digital-white.png" alt="Logo PDI Digital" class="logo-footer" style="width: 100px; height: 40px;">
+                    </div>
+                    <div class="footer-text-left item2 align-items-center flex-row" style="font-size: 12px;">
+                        <p class="footer-text md:mb-6" style="margin-bottom: 0px">Una iniciativa de la </p>
+                        <p class="footer-text md:mb-6">Policía de investigaciones de Chile</p>
+                    </div>
+                </div>
+                <div class="footer-right-side">
+                    <p class="footer-text footer-text-right md:mb-6" style="margin-bottom: 0px">
+                        Desarrollado por: Jefatura Nacional de Tecnologías de la
+                        Información y Transformación Digital
+                    </p>
+                    <p class="footer-text footer-text-right md:mb-6">
+                        <b>Versión</b>&nbsp;
+                    </p>
+                </div>
+            </div>
+        </footer>
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+
+    <script type="text/javascript" src="~/lib/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="~/lib/adminlte/js/adminlte.js"></script>
+    <script type="text/javascript" src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="~/lib/fontawesome-free/js/all.js"></script>
+    <script type="text/javascript" src="~/lib/fontawesome-free/js/all.min.js"></script>
+    <script type="text/javascript" src="~/lib/fontawesome-free/js/fontawesome.js"></script>
+    <script type="text/javascript" src="~/lib/fontawesome-free/js/fontawesome.min.js"></script>
+
+
+    <script type="text/javascript" src="~/lib/datatables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/lib/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="~/lib/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="~/lib/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="~/lib/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script type="text/javascript" src="~/lib/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+
+    <script type="text/javascript" src="~/lib/jszip/jszip.min.js"></script>
+    <script type="text/javascript" src="~/lib/pdfmake/pdfmake.min.js"></script>
+    <script type="text/javascript" src="~/lib/pdfmake/vfs_fonts.js"></script>
+
+    <script type="text/javascript" src="~/lib/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="~/lib/datatables-buttons/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="~/lib/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+    <script type="text/javascript" src="~/lib/select2/js/select2.full.min.js"></script>
+    <script type="text/javascript" src="~/lib/sweetalert2/sweetalert2.min.js"></script>
+    <script type="text/javascript" src="~/js/inicio.js"></script>
+
+    @await RenderSectionAsync("scripts", required: false)
+</body>
+</html>

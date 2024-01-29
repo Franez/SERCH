@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Agregar palabras</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Agregar palabras</h1>
+    <input type="text" id="inputPalabra" placeholder="Escribe una palabra">
+    <button id="btnEnviar">Enviar</button>
+    <div id="palabrasAgregadas">
+        <h2>Palabras agregadas:</h2>
+        <label id="etiquetaPalabras"></label>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#btnEnviar").click(function () {
+                var palabra = $("#inputPalabra").val(); // Obtener el valor del input
+                if (palabra !== "") {
+                    var etiquetaPalabras = $("#etiquetaPalabras");
+                    etiquetaPalabras.text(etiquetaPalabras.text() + palabra + " "); // Agregar la palabra al label
+                    $("#inputPalabra").val(""); // Borrar el contenido del input
+                }
+            });
+        });
+    </script>
+</body>
+</html>

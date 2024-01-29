@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "LogIn";
+    Layout = "~/Views/Shared/_LogIn.cshtml";
+}
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "login-form1", DefaultButton = "btn_submits" }))
+{
+    <div class="row justify-content-center">
+        <div class="login-main-panel col-md-8 col-xl-10">
+            <div class="card mt-4">
+
+                <div class="card-body p-4">
+                    <div class="text-center">
+                        <a class="awellcome">¡Bienvenidos!</a>
+                        <p class="pappmame">Sistema Especializado Relatos Con Hechos</p>
+
+                    </div>
+                    <div class="">
+                        <form action="index.html">
+
+                            <div class="mb-3">
+                                <fieldset class="scheduler-border-fieldset">
+                                    <legend class="scheduler-border-legend">Active Directory</legend>
+                                    <input type="text" class="input" name="UserName" id="username" placeholder="">
+                                </fieldset>
+
+                            </div>
+
+                            <div class="mb-3">
+                                <fieldset class="scheduler-border-fieldset">
+                                    <legend class="scheduler-border-legend">Contraseña</legend>
+                                    <input type="password" name="Password" class="input" placeholder="" id="password-input">
+                                    <div class="input-group-append">
+                                        <button id="show_password" class="btn-default-pdi" type="button" onclick="mostrarPassword()">
+                                            <span class="icon-close"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M 25 3 C 18.363281 3 13 8.363281 13 15 L 13 20 L 9 20 C 7.355469 20 6 21.355469 6 23 L 6 47 C 6 48.644531 7.355469 50 9 50 L 41 50 C 42.644531 50 44 48.644531 44 47 L 44 23 C 44 21.355469 42.644531 20 41 20 L 37 20 L 37 15 C 37 8.363281 31.636719 3 25 3 Z M 25 5 C 30.566406 5 35 9.433594 35 15 L 35 20 L 15 20 L 15 15 C 15 9.433594 19.433594 5 25 5 Z M 9 22 L 41 22 C 41.554688 22 42 22.445313 42 23 L 42 47 C 42 47.554688 41.554688 48 41 48 L 9 48 C 8.445313 48 8 47.554688 8 47 L 8 23 C 8 22.445313 8.445313 22 9 22 Z M 25 30 C 23.300781 30 22 31.300781 22 33 C 22 33.898438 22.398438 34.6875 23 35.1875 L 23 38 C 23 39.101563 23.898438 40 25 40 C 26.101563 40 27 39.101563 27 38 L 27 35.1875 C 27.601563 34.6875 28 33.898438 28 33 C 28 31.300781 26.699219 30 25 30 Z" /></svg></span>
+                                            <span class="icon-open" style="display:none;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" fill-rule="nonzero" fill="#dddddd"><g fill-opacity="0" fill="#dddddd" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,256v-256h256v256z" id="bgRectangle"></path></g><g fill="#000000" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M22.78125,0c-1.17578,-0.00391 -2.375,0.16406 -3.5625,0.53125c-6.31641,1.96094 -9.92969,8.73828 -7.96875,15.0625v0.0625c0.25781,0.71094 0.94922,2.96094 1.375,4.34375h-3.625c-1.64453,0 -3,1.35547 -3,3v24c0,1.64453 1.35547,3 3,3h32c1.64453,0 3,-1.35547 3,-3v-24c0,-1.64453 -1.35547,-3 -3,-3h-26.25c-0.30859,-0.99219 -1.23828,-3.92578 -1.625,-5h0.03125c-1.63672,-5.27734 1.34375,-10.89062 6.625,-12.53125c5.26953,-1.63672 10.91406,1.32813 12.5625,6.59375c0,0.00391 0,0.02734 0,0.03125c0.22656,0.79297 1.3125,4.3125 1.3125,4.3125c0.08984,0.35938 0.37109,0.64453 0.73047,0.73047c0.36328,0.08984 0.74219,-0.02734 0.98828,-0.30469c0.24609,-0.28125 0.32031,-0.67187 0.1875,-1.01953c0,0 -1.12891,-3.64062 -1.3125,-4.28125v-0.03125c-1.46875,-4.73828 -5.64844,-7.95703 -10.3125,-8.4375c-0.38672,-0.03906 -0.76562,-0.0625 -1.15625,-0.0625zM9,22h32c0.55469,0 1,0.44531 1,1v24c0,0.55469 -0.44531,1 -1,1h-32c-0.55469,0 -1,-0.44531 -1,-1v-24c0,-0.55469 0.44531,-1 1,-1zM25,30c-1.69922,0 -3,1.30078 -3,3c0,0.89844 0.39844,1.6875 1,2.1875v2.8125c0,1.10156 0.89844,2 2,2c1.10156,0 2,-0.89844 2,-2v-2.8125c0.60156,-0.5 1,-1.28906 1,-2.1875c0,-1.69922 -1.30078,-3 -3,-3z"></path></g></g></svg></span>
+                                        </button>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <a href="https://autogestionclaves.investigaciones.cl/" target="_blank" class="alink-resetpass">¿Quiere recuperar su contraseña?</a>
+                                </div>
+
+                                <div class="col-md-4" style="text-align:right;">
+                                    <button type="button" id="btn_LogInU" class="btn-default-login">Entrar &nbsp;&nbsp; <i id="spinLoad" class="fa-solid fa-spinner fa-spin fa-2xl" style="display:none"></i></button>
+                                    <div style="display:none;">
+                                        <button class="" name="btn_ingresar" id="btn_submits" type="submit">INGRESAR</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5%;">
+                                <div class="col-md-8" style="text-align:right;">
+                                    <span class="span-version">Revision:&nbsp;</span><span class="span-version-bold">v</span><span class="span-version-bold">123456789 [sssad]</span>
+                                </div>
+                                <div class="col-md-4" style="text-align:right;">
+                                    <a href="~/Manual/Manual_HDV.pdf" target="_blank" class="alink-resetpass">Manual de Usuario</a>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top:5%;">
+                                <div class="col-md-12" style="text-align:right;">
+                                    <span class="span-devBy">Desarrollado por: Jefatura Nacional de Tecnologías de la Información y Transformación Digital</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="alert alert-info alert-dismissible">
+                                        <span><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0,0,256,256" width="30px" fill-rule="nonzero" fill="#dddddd"><g fill-opacity="0" fill="#dddddd" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><path d="M0,256v-256h256v256z" id="bgRectangle"></path></g><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(2,2)"><circle cx="64" cy="64" r="55" fill-opacity="0" fill="#dddddd"></circle><path d="M64,122c-32,0 -58,-26 -58,-58c0,-32 26,-58 58,-58c32,0 58,26 58,58c0,32 -26,58 -58,58zM64,12c-28.7,0 -52,23.3 -52,52c0,28.7 23.3,52 52,52c28.7,0 52,-23.3 52,-52c0,-28.7 -23.3,-52 -52,-52z" fill="#bb9223"></path><path d="M64,49c-5.5,0 -10,-4.5 -10,-10c0,-5.5 4.5,-10 10,-10c5.5,0 10,4.5 10,10c0,5.5 -4.5,10 -10,10zM64,35c-2.2,0 -4,1.8 -4,4c0,2.2 1.8,4 4,4c2.2,0 4,-1.8 4,-4c0,-2.2 -1.8,-4 -4,-4z" fill="#bb9223"></path><path d="M64,102c-5.5,0 -10,-4.5 -10,-10v-24c0,-5.5 4.5,-10 10,-10c5.5,0 10,4.5 10,10v24c0,5.5 -4.5,10 -10,10zM64,64c-2.2,0 -4,1.8 -4,4v24c0,2.2 1.8,4 4,4c2.2,0 4,-1.8 4,-4v-24c0,-2.2 -1.8,-4 -4,-4z" fill="#bb9223"></path></g></g></svg></span>
+                                        <span>Presione las teclas </span><span style="font-weight:900;">Ctrl+Shift+F5</span><span>, si no puede ingresar</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- end card body -->
+            </div>
+            <!-- end card -->
+            <!-- <div class="mt-4 text-center">
+                <p class="mb-0">Don't have an account ? <a href="auth-signup-basic.html" class="fw-semibold text-primary text-decoration-underline"> Signup </a> </p>
+            </div> -->
+
+        </div>
+    </div>
+}

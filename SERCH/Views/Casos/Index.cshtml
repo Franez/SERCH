@@ -1,0 +1,130 @@
+﻿@model IEnumerable<SERCH.Models.InpCaso>
+
+@{
+    ViewData["Title"] = "SERCH";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+
+    <link href="@Url.Content("~/lib/datatables-bs4/css/datatables.bootstrap4.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/lib/datatables-responsive/css/responsive.bootstrap4.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/lib/datatables-buttons/css/buttons.bootstrap4.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/lib/select2/css/select2.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/lib/select2-bootstrap4-theme/select2-bootstrap4.min.css")" rel="stylesheet" />
+
+    <link href="@Url.Content("~/lib/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/lib/sweetalert2/sweetalert2.min.css")" rel="stylesheet" />
+
+}
+
+<br />
+<br />
+
+
+
+<div class="container">
+    <form id="BuscarForm" class="d-flex" role="search">
+        @*<input id="boxBuscar" class="form-control me-2 tagify " type="search" multiple="multiple" placeholder="Ingrese aquí las palabras claves" aria-label="Search" oninput="this.value = this.value.replace(/ /g, '%').toUpperCase()">*@
+        <input id="boxBuscar" class="form-control me-2 tagify " type="search" multiple="multiple" placeholder="Ingrese aquí las palabras claves" aria-label="Search">
+        <input type="button" id="add_Word" class="btn btn-info btn-sm" value="Agregar Palabra" style="display:inline-block">
+        <input type="button" id="add_And" class="btn btn-info btn-sm" value=" Y " style="display:none">
+        <input type="button" id="add_Or" class="btn btn-info btn-sm" value=" O " style="display:none">
+        <input type="button" id="LimpiarQuery" class="btn btn-danger btn-sm" value="Limpiar" style="display:none">
+    </form>
+    <label style="display:inline-block"> Busqueda avanzada </label>
+    <form id="BuscarAvanzadoForm" class="d-flex" style="display:none">
+        <input type="button" id="addParentesisInicio" class="btn btn-info btn-sm" value="  (  ">
+        <input type="button" id="addParentesisFinal" class="btn btn-info btn-sm" value="  )  ">
+        <input type="button" id="add_And_E" class="btn btn-info btn-sm" value=" AND ">
+        <input type="button" id="add_Or_E" class="btn btn-info btn-sm" value=" OR ">
+    </form>
+    
+    <br/>
+    <div id="Labelerino">
+        @*LABEL DE LA QUERY*@
+        <label id="etiquetaPalabras"></label>
+    </div>
+</div>
+<br />
+<br />
+<div class="d-flex justify-content-center">
+    <button id="btnBuscar" class="btn btn-success" style="display: none;">Buscar</button>
+</div>
+
+
+<div class="container" style="margin-bottom: 50px;">
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover dataTable" id="RelatosIndex">
+            <thead>
+                <tr>
+                    <th>Nro Folio</th>
+                    <th>Relato</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.InpFolio </td>
+                        <td>
+                            @if (String.IsNullOrEmpty(item.InpRelatoHecho))
+                            {
+                                String.Concat("Vacio.");
+                            }
+                            else
+                            {
+                                @if (item.InpRelatoHecho.Length >= 250)
+                                {
+                                    @item.InpRelatoHecho.Substring(0, 250)
+                                    ;
+                                }
+                                else
+                                {
+                                    @item.InpRelatoHecho
+                                    ;
+                                }
+
+                            }
+
+                        </td>
+                        <td>
+                            <a href="@String.Concat("/Casos/Details/", item.InpFolio)" target="_blank">Detalle</a>
+                        </td>
+                    </tr>
+
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+@section Scripts
+    {
+
+    <script src="@Url.Content("~/lib/datatables/jquery.dataTables.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/lib/datatables-bs4/js/dataTables.bootstrap4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/lib/datatables-responsive/js/dataTables.responsive.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/lib/datatables-responsive/js/responsive.bootstrap4.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/lib/datatables-buttons/js/dataTables.buttons.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/lib/datatables-buttons/js/buttons.bootstrap4.min.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/lib/jszip/jszip.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/lib/pdfmake/pdfmake.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/lib/pdfmake/vfs_fonts.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/lib/datatables-buttons/js/buttons.html5.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/lib/datatables-buttons/js/buttons.print.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/lib/datatables-buttons/js/buttons.colVis.min.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/lib/select2/js/select2.full.min.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/lib/sweetalert2/sweetalert2.min.js")" type="text/javascript"></script>
+
+    <script src="@Url.Content("~/js/Casos.js")" type="text/javascript"></script>
+    <script src="@Url.Content("~/js/InputsDinamicos.js")" type="text/javascript"></script>
+
+    }

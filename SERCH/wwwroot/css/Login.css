@@ -1,0 +1,253 @@
+﻿body {
+}
+
+.auth-one-bg {    
+    background-image: url('../images/img-login.jpg');
+    background-position: revert;
+    height: 100vh !important;
+    background-repeat: round;
+    background-size: cover;
+}
+
+.input {
+    border: transparent;
+    outline: none;
+    width: 100%;
+}
+
+    .input:focus {
+        border: none;
+        outline: none;
+       
+    }
+    .input::after {
+        background-color: none;
+    }
+
+
+
+
+input[type=text]:-webkit-autofill,
+input[type=text]:-webkit-autofill:hover,
+input[type=text]:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+.input-group-append {
+    position: absolute;
+    top: 233px;
+    /* left: 675px; */
+    right: 72px;
+}
+
+.btn-default-pdi {
+    color: gray;
+    background-color: white;
+    border-color: gray;
+    /* border-radius: 5px; */
+    /* box-shadow: 2px 2px rgb(0 0 0 / 20%); */
+    /* border-width: 1px; */
+    border: solid 1px grey !important;
+    width: 62px;
+    height: 47px;
+}
+
+.icon-pass {
+}
+.login-main-panel {
+    margin-top: 12.5%;
+    margin-left: 40%;
+}
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    float: none;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    margin-bottom: -0.5rem;
+    font-size: 1.5rem;
+    line-height: inherit;
+    color: inherit;
+    white-space: normal;
+}
+
+.scheduler-border-fieldset {
+    border: solid 1px #DDD !important;
+    padding: 10px 10px 10px 10px !important;
+}
+
+.scheduler-border-legend {
+    width: auto !important;
+    border: none !important;
+    font-size: 14px !important;
+    color: #56585e;
+    font-weight: 500;
+}
+.card {
+    border-radius: 1.25rem !important;
+}
+.p-4 {
+    padding: 1.5rem 4.5rem 1.5rem 4.5rem !important;
+}
+
+.btn-default-login {
+    color: white;
+    background-color: #577E93;
+    border-color: #577E93;
+    border-radius: 28px;
+    box-shadow: 2px 2px rgb(0 0 0 / 20%);
+    /* border-width: 1px; */
+    border: solid 1px #577E93 !important;
+    width: 66%;
+    height: 47px;
+   
+}
+.alink-resetpass {
+    color: #56585e;
+    font-weight: 500;
+}
+
+.span-version {
+    color: #56585e;
+    font-weight: 500;
+}
+
+.span-version-bold {
+    color: #56585e;
+    font-weight:900;
+}
+
+.span-devBy {
+    color: #56585e;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    text-align: right;
+    color: #bb9223 !important;   
+}
+
+.alert-info {
+    color: #fff;
+    background-color: #e9e2cd;
+    border-color: #e9e2cd   ;
+}
+
+.awellcome {
+    font-size: 30px;
+}
+.pappmame {
+    font-size: 40px;
+    color: #000E69;
+    font-weight: 600;
+}
+
+.icon-close svg {
+    transform: scale(0.6);
+    margin-top:-3%;
+}
+
+.icon-open svg {
+    transform: scale(0.6);
+    margin-top: -3%;
+}
+
+
+@media screen and (max-width: 1280px) {
+    .login-main-panel {
+        margin-top: 4.5%;
+        margin-left: 29%;
+        width: 62%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .login-main-panel {
+        margin-top: 2.5%;
+        margin-left: 40%;
+    }
+    .awellcome {
+        font-size: 24px;
+    }
+
+    .pappmame {
+        font-size: 30px;
+        color: #000E69;
+        font-weight: 600;
+    }
+
+    .scheduler-border-fieldset {
+        border: solid 1px #DDD !important;
+        padding: 10px 10px 10px 10px !important;
+        height: 45px;
+    }
+
+    .input {
+        border: transparent;
+        outline: none;
+        width: 100%;
+        position: relative;
+        top: -6px;
+    }
+
+    .input-group-append {
+        position: absolute;
+        top: 197px;
+        right: 72px;
+    }
+
+    .btn-default-pdi {
+        color: gray;
+        background-color: white;
+        border-color: gray;    
+        border: solid 1px grey !important;
+        width: 48px;
+        height: 35px;
+    }
+
+    .icon-close svg {
+        transform: scale(0.6);
+    }
+    .icon-open svg {
+        transform: scale(0.6);
+    }
+
+    .btn-default-login {
+        color: white;
+        background-color: #577E93;
+        border-color: #577E93;
+        border-radius: 28px;
+        box-shadow: 2px 2px rgb(0 0 0 / 20%);
+      
+        border: solid 1px #577E93 !important;
+        width: 73%;
+        height: 35px;
+      
+    }
+
+    .span-devBy {
+        color: #56585e;
+        font-weight: 500;
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .login-main-panel {
+        margin-top: 5.5%;
+        margin-left: 40%;
+    }
+}

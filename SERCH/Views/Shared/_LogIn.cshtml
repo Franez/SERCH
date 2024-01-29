@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html lang="en" data-layout="vertical" data-layout-style="detached" data-sidebar="light" data-topbar="dark" data-sidebar-size="lg" data-sidebar-image="none">
+<head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+    <meta content="Themesbrand" name="author" />
+    <!-- App favicon -->
+    <link href="~/images/favicon.ico" rel="shortcut icon">
+
+
+    <link rel="stylesheet" type="text/css" href="~/css/loading.css" />
+    <!-- Bootstrap Css -->
+    <link rel="stylesheet" type="text/css" href="~/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/app.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/css/custom.min.css" />
+    <!-- Icons Css -->
+    <link rel="stylesheet" type="text/css" href="~/css/Login.css">
+    <link rel="stylesheet" type="text/css" href="~/lib/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+   
+
+
+</head>
+<body>
+   
+    <div class="auth-page-wrapper auth-one-bg pt-5">
+        <!-- auth page bg -->
+        <!--<div class="auth-one-bg-position">-->
+        <!-- <img src="assets/images/pdioficinas.jpg"> -->
+        <!--</div>-->
+        <!-- auth page content -->
+        <div class="auth-page-content ">
+            <div class="container-login container">
+                @RenderBody()
+            </div>
+        </div>
+    </div>
+    <!-- end auth-page-wrapper -->
+    <!-- JAVASCRIPT -->
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    
+    <script type="text/javascript" src="~/lib/sweetalert2/sweetalert2.js"></script>
+
+    <script  type="text/javascript" src="~/js/login.js"></script>
+    <script src="https://kit.fontawesome.com/3e8406fa52.js" crossorigin="anonymous"></script>
+
+</body>
+</html>

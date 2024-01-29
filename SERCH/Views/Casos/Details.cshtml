@@ -1,0 +1,76 @@
+﻿@using System.Net
+@using System.Text.RegularExpressions
+@model SERCH.Models.InpCaso
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Relato</h1>
+<style>
+    .highlight {
+        background-color: yellow;
+    }
+
+</style>
+
+<div>
+    <h4>Caso N° @Html.DisplayFor(model => model.InpFolio)</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Fecha Relato:
+        </dt>
+        <dd class="col-sm-10">
+            @if (Model.InpFecha == null)
+            {
+                <span>Registro sin fecha</span>
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.InpFecha)
+            }
+        </dd>
+        <dt class="col-sm-2">
+            Relato Hecho:
+        </dt>
+        
+
+        @if (ViewBag.Palabras != null)
+        {
+            var palabrasDecodificadas = WebUtility.UrlDecode(ViewBag.Palabras);
+            var palabrasParaResaltar = palabrasDecodificadas.Split(','); // Dividir las palabras en un arreglo
+
+            <dd class="col-sm-10">
+                @{
+                    var texto = Model.InpRelatoHecho ?? "";
+
+                    // Iterar sobre cada palabra para resaltar
+                    foreach (var palabraParaResaltar in palabrasParaResaltar)
+                    {
+                        var palabraParaResaltarLimpia = palabraParaResaltar.Trim(); // Eliminar espacios en blanco adicionales
+                        if (!string.IsNullOrEmpty(palabraParaResaltarLimpia))
+                        {
+                            texto = Regex.Replace(texto, palabraParaResaltarLimpia, $"<span class='highlight'>{palabraParaResaltarLimpia}</span>", RegexOptions.IgnoreCase);
+                        }
+                    }
+
+                    @Html.Raw(texto)
+                }
+            </dd>
+        }
+
+        else
+        {
+            <dd>
+                @Html.DisplayFor(model => model.InpRelatoHecho)
+            </dd>
+        }
+
+
+
+
+
+    </dl>
+</div>
